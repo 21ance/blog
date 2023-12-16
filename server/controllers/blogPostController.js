@@ -4,7 +4,9 @@ const { body, validationResult } = require("express-validator");
 
 exports.blog_get_all = asyncHandler(async (req, res, next) => {
 	try {
-		const allBlogs = await BlogPost.find().exec();
+		const allBlogs = await BlogPost.find()
+			.populate("comments", "username comment date_created")
+			.exec();
 		res.json(allBlogs);
 	} catch (err) {
 		res.json({
@@ -15,7 +17,9 @@ exports.blog_get_all = asyncHandler(async (req, res, next) => {
 
 exports.blog_get = asyncHandler(async (req, res, next) => {
 	try {
-		const blogPost = await BlogPost.findById(req.params.id).exec();
+		const blogPost = await BlogPost.findById(req.params.id)
+			.populate("comments", "username comment date_created")
+			.exec();
 		res.json(blogPost);
 	} catch (err) {
 		res.status(404).json({
