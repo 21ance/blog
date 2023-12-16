@@ -15,4 +15,4 @@ CommentSchema.virtual("date_created_formatted").get(function () {
 	);
 });
 
-module.exports = mongoose.model("CommentSchema", CommentSchema);
+module.exports = mongoose.model("Comment", CommentSchema);
