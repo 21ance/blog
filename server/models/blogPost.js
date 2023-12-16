@@ -20,4 +20,4 @@ BlogPostSchema.virtual("date_created_formatted").get(function () {
 	);
 });
 
-module.exports = mongoose.model("BlogPostSchema", BlogPostSchema);
+module.exports = mongoose.model("BlogPost", BlogPostSchema);
