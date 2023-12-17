@@ -16,3 +16,8 @@
 	font-family: Sansita;
 	src: url("../fonts/Sansita.ttf");
 }
+
+@font-face {
+	font-family: Roboto;
+	src: url("../fonts/Roboto.ttf");
+}

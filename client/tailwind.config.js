@@ -6,10 +6,14 @@ export default {
 			europa: ["Europa", "sans-serif"],
 			europaBold: ["Europa-Bold", "sans-serif"],
 			sansita: ["Sansita", "sans-serif"],
+			roboto: ["Roboto", "sans-serif"],
 		},
 		extend: {
 			backgroundImage: {
 				"hero-bg": "url('/images/hero-bg.jpg')",
+			},
+			gridTemplateColumns: {
+				blogList: "repeat(auto-fit, minmax(450px, 1fr))",
 			},
 		},
 	},
