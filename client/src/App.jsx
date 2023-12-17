@@ -1,13 +1,18 @@
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
-import Hero from "./components/hero/Hero";
-import BlogList from "./components/blogList/blogList";
+import HomePage from "./pages/HomePage";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
 	return (
 		<>
-			<Header />
-			<Hero />
-			<BlogList />
+			<HashRouter>
+				<Header />
+				<Routes>
+					<Route path="/" element={<HomePage />} />{" "}
+					<Route path="/blog/:blogID" element={<BlogPage />} />{" "}
+				</Routes>
+			</HashRouter>
 		</>
 	);
 }

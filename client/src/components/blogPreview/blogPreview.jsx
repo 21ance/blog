@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BlogPreview = (props) => {
 	const {
 		href,
@@ -9,11 +11,11 @@ const BlogPreview = (props) => {
 		content = "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem.",
 	} = props;
 	return (
-		<a href={href} className="flex flex-col gap-2 text-gray-500">
+		<Link to={href} className="flex flex-col gap-2 text-gray-500">
 			<img
 				src={src}
 				alt="blog preview image"
-				className="h-[375px] object-cover"
+				className="h-[200px] md:h-[375px] object-cover"
 			/>
 			<h2 className="font-europaBold text-black text-2xl md:text-4xl">
 				{title}
@@ -29,7 +31,7 @@ const BlogPreview = (props) => {
 			<span className="underline underline-offset-4 font-europaBold text-black text-xl">
 				View Post
 			</span>
-		</a>
+		</Link>
 	);
 };
 
