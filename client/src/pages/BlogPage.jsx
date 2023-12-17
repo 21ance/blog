@@ -1,7 +1,20 @@
+import { useParams } from "react-router-dom";
+import useAxiosGet from "../hooks/useAxiosGet";
+import BlogHero from "../components/hero/BlogHero";
+import BlogContent from "../components/blogContent/BlogContent";
+
 const BlogPage = () => {
+	let { blogID } = useParams();
+	const { data, loading, error } = useAxiosGet(`blog/${blogID}`);
+	const blog = data;
+
+	if (loading) return "Loading...";
+	if (error) return `Error: ${error}`;
+
 	return (
-		<main>
-			<h1>Blog</h1>
+		<main className="px-4 md:px-16">
+			<BlogHero title={blog.title} date={blog.date_created} />
+			<BlogContent content={blog.content} />
 		</main>
 	);
 };
