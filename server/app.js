@@ -29,6 +29,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// https://expressjs.com/en/resources/middleware/cors.html
+var cors = require("cors");
+app.use(cors());
+
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
