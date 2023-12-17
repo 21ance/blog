@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: Europa;
+	src: url("../fonts/Europa.ttf");
+}
+
+@font-face {
+	font-family: Europa-Bold;
+	src: url("../fonts/Europa-Bold.ttf");
+}
+
+@font-face {
+	font-family: Sansita;
+	src: url("../fonts/Sansita.ttf");
+}

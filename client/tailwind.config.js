@@ -2,7 +2,16 @@
 export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
-		extend: {},
+		fontFamily: {
+			europa: ["Europa", "sans-serif"],
+			europaBold: ["Europa-Bold", "sans-serif"],
+			sansita: ["Sansita", "sans-serif"],
+		},
+		extend: {
+			backgroundImage: {
+				"hero-bg": "url('/images/hero-bg.jpg')",
+			},
+		},
 	},
 	plugins: [],
 };
