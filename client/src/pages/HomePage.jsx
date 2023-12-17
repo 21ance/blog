@@ -5,8 +5,8 @@ import Banner from "../components/banner/Banner";
 const HomePage = () => {
 	return (
 		<>
-			<Hero />
-			<main className=" px-4 md:px-16">
+			<main className="px-4 md:px-16">
+				<Hero />
 				<BlogList />
 				<Banner />
 			</main>

@@ -1,9 +1,9 @@
 const Hero = () => {
 	return (
-		<section className="relative mt-[-5rem] h-[50vh] xl:h-screen flex flex-col gap-4 justify-center items-center text-white">
+		<section className="relative mt-[-5rem] h-[50vh] xl:h-screen flex flex-col gap-4 justify-center items-center text-white mx-[-1rem] md:mx-[-4rem]">
 			<img
 				src="/images/hero-bg.jpg"
-				className="object-cover w-full h-full absolute top-0 -z-10 brightness-50"
+				className="object-cover h-full w-full absolute top-0 -z-10 brightness-50"
 				alt="hero section background image"
 			/>
 			<h1 className="uppercase font-europaBold text-2xl xl:text-6xl text-center">
