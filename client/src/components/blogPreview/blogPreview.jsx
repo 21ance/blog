@@ -4,7 +4,7 @@ const BlogPreview = (props) => {
 		src = "/images/blog-preview-default.jpg",
 		title = "Integer Maecenas Eget Viverra",
 		avatar = "/images/author-avatar-mini.png",
-		author = "Joanna Wellick",
+		author = "Lance Lopez",
 		date = "June 28, 2018",
 		content = "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem.",
 	} = props;
