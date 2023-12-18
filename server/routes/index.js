@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-// author / authentication routes
-const author_controller = require("../controllers/authorController");
-router.get("/author/:id", author_controller.author_get);
-router.post("/author", author_controller.author_post);
+// authentication routes
+const auth_controller = require("../controllers/authController");
+router.post("/login", auth_controller.login_post);
+router.post("/register", auth_controller.register_post);
 
 // blog routes
 const blogPost_controller = require("../controllers/blogPostController");

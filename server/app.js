@@ -19,6 +19,28 @@ async function main() {
 	await mongoose.connect(mongoDB);
 }
 
+// https://www.passportjs.org/packages/passport-jwt/
+const Author = require("./models/author");
+const passport = require("passport");
+
+var JwtStrategy = require("passport-jwt").Strategy,
+	ExtractJwt = require("passport-jwt").ExtractJwt;
+var opts = {};
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = process.env.JWT_SECRET;
+passport.use(
+	new JwtStrategy(opts, async function (jwt_payload, done) {
+		try {
+			const user = await Author.findById(jwt_payload.id);
+			if (user) {
+				return done(null, user);
+			}
+		} catch (err) {
+			return done(err, false);
+		}
+	})
+);
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");

@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const BlogPost = require("../models/blogPost");
 const { body, validationResult } = require("express-validator");
+const passport = require("passport");
 
 exports.blog_get_all = asyncHandler(async (req, res, next) => {
 	try {
@@ -29,6 +30,7 @@ exports.blog_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.blog_post = [
+	passport.authenticate("jwt", { session: false }),
 	body("title", "Title is required").trim().isLength({ min: 1 }),
 	body("content", "Content is required").trim().isLength({ min: 1 }),
 	asyncHandler(async (req, res, next) => {
