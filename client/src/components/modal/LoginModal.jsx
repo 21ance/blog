@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { axiosPost } from "../../helper/functions";
 import ModalLayout from "./ModalLayout";
 
 const LoginModal = () => {
 	const [formData, setFormData] = useState({ username: "", password: "" });
+	const [postMessage, setPostMessage] = useState({});
+
+	useEffect(() => {
+		console.log(postMessage);
+	}, [postMessage]);
 
 	return (
 		<ModalLayout>
-			<form className="bg-white p-6 rounded flex flex-col gap-2">
+			<form className="bg-white p-6 rounded flex flex-col gap-2 ">
 				<div className="flex flex-col">
 					<label htmlFor="username">Username:</label>
 					<input
@@ -22,6 +27,7 @@ const LoginModal = () => {
 						}}
 						className="border-black border p-1 rounded"
 					/>
+					<ErrorMessage object={postMessage} objectProperty="username" />
 				</div>
 				<div className="flex flex-col">
 					<label htmlFor="password">Password:</label>
@@ -37,26 +43,36 @@ const LoginModal = () => {
 						}}
 						className="border-black border p-1 rounded"
 					/>
+					<ErrorMessage object={postMessage} objectProperty="password" />
 				</div>
 				<button
 					type="submit"
-					onClick={(e) => {
+					onClick={async (e) => {
 						e.preventDefault();
-						axiosPost("login", {
+						const res = await axiosPost("login", {
 							username: formData.username,
 							password: formData.password,
 						});
+						setPostMessage(res);
 					}}
 				>
 					Login
 				</button>
-				<p
-					id="login-error"
-					className="text-sm text-red-500 text-center"
-				></p>
+				<ErrorMessage object={postMessage} objectProperty="message" />
 			</form>
 		</ModalLayout>
 	);
+};
+
+const ErrorMessage = (props) => {
+	const { object, objectProperty } = props;
+
+	if (Object.prototype.hasOwnProperty.call(object, objectProperty))
+		return (
+			<small className="text-sm text-red-500 text-center">
+				{object[objectProperty]}
+			</small>
+		);
 };
 
 export default LoginModal;
