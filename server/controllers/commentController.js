@@ -28,9 +28,7 @@ exports.comment_post = [
 			errors.array().map((error) => {
 				errorObject[error.path] = error.msg;
 			});
-			return res.json({
-				errors: errorObject,
-			});
+			return res.json(errorObject);
 		}
 
 		const newComment = new Comment({

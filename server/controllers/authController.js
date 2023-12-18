@@ -18,9 +18,7 @@ exports.login_post = [
 			errors.array().map((error) => {
 				errorObject[error.path] = error.msg;
 			});
-			return res.json({
-				errors: errorObject,
-			});
+			return res.json(errorObject);
 		}
 
 		// check if user exist
@@ -70,9 +68,7 @@ exports.register_post = [
 			errors.array().map((error) => {
 				errorObject[error.path] = error.msg;
 			});
-			return res.json({
-				errors: errorObject,
-			});
+			return res.json(errorObject);
 		}
 
 		const newAuthor = new Author({
