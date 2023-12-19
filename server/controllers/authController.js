@@ -3,6 +3,14 @@ const Author = require("../models/author");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
+
+exports.auth_post = [
+	passport.authenticate("jwt", { session: false }),
+	asyncHandler(async (req, res, next) => {
+		res.json(req.user);
+	}),
+];
 
 exports.login_post = [
 	body("username", "Username must be 3 - 20 characters")
@@ -93,7 +101,17 @@ exports.register_post = [
 			bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
 				newAuthor.password = hashedPassword;
 				await newAuthor.save();
-				res.json(newAuthor);
+				// jwt
+				const payload = {
+					username: newAuthor.username,
+					id: newAuthor._id,
+				};
+				const token = jwt.sign(payload, process.env.JWT_SECRET, {
+					expiresIn: "7d",
+				});
+				return res.json({
+					token: "Bearer " + token,
+				});
 			});
 		} catch (err) {
 			res.json(err);

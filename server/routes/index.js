@@ -3,6 +3,7 @@ var router = express.Router();
 
 // authentication routes
 const auth_controller = require("../controllers/authController");
+router.post("/auth", auth_controller.auth_post);
 router.post("/login", auth_controller.login_post);
 router.post("/register", auth_controller.register_post);
 
