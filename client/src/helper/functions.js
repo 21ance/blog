@@ -13,4 +13,8 @@ const axiosPost = async (endpoint, data, config) => {
 	}
 };
 
-export { axiosPost };
+const saveToLocalStorage = (key, value) => {
+	localStorage.setItem(key, JSON.stringify(value));
+};
+
+export { axiosPost, saveToLocalStorage };

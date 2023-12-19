@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { axiosPost } from "../../helper/functions";
+import { axiosPost, saveToLocalStorage } from "../../helper/functions";
 import { Context } from "../../App";
 import FormMessage from "./FormMessage";
 
@@ -77,6 +77,10 @@ const RegisterModal = () => {
 						passwordConfirm: formData.passwordConfirm,
 					});
 					setPostMessage(res);
+					if (Object.prototype.hasOwnProperty.call(res, "token")) {
+						saveToLocalStorage("token", res.token);
+						setModalConfig((prev) => ({ ...prev, active: false }));
+					}
 				}}
 			>
 				Register

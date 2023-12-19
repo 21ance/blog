@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { axiosPost } from "../../helper/functions";
+import { axiosPost, saveToLocalStorage } from "../../helper/functions";
 import { Context } from "../../App";
 import FormMessage from "./FormMessage";
 
@@ -53,6 +53,10 @@ const LoginModal = () => {
 						password: formData.password,
 					});
 					setPostMessage(res);
+					if (Object.prototype.hasOwnProperty.call(res, "token")) {
+						saveToLocalStorage("token", res.token);
+						setModalConfig((prev) => ({ ...prev, active: false }));
+					}
 				}}
 			>
 				Login
