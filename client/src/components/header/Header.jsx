@@ -19,7 +19,7 @@ const Header = () => {
 				<a href="">lifestyle</a>
 			</nav>
 			<button
-				className="uppercase hidden lg:block bg-black rounded px-4 py-2 font-sansita tracking-wide"
+				className="uppercase bg-black rounded px-4 py-2 font-sansita tracking-wide"
 				onClick={() =>
 					setModalConfig((prev) => ({ ...prev, active: "Login" }))
 				}

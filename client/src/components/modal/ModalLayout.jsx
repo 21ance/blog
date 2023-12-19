@@ -1,8 +1,9 @@
 import { useContext, useEffect } from "react";
 import { Context } from "../../App";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
-const ModalLayout = (props) => {
-	const { children } = props;
+const ModalLayout = () => {
 	const { modal } = useContext(Context);
 	const { modalConfig, setModalConfig } = modal;
 
@@ -32,7 +33,7 @@ const ModalLayout = (props) => {
 			id="modal"
 			className="modal fixed bg-gray-600 bg-opacity-50 overflow-y-auto items-center justify-center z-20 flex mx-[-6rem] inset-0"
 		>
-			{children}
+			{modalConfig.active === "Login" ? <LoginForm /> : <RegisterForm />}
 		</div>
 	);
 };

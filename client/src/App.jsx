@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 import Header from "./components/header/Header";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
-import LoginModal from "./components/modal/LoginModal";
+import ModalLayout from "./components/modal/ModalLayout";
 
 export const Context = createContext();
 
@@ -22,7 +22,7 @@ function App() {
 					<Route path="/" element={<HomePage />} />{" "}
 					<Route path="/blog/:blogID" element={<BlogPage />} />{" "}
 				</Routes>
-				<LoginModal />
+				<ModalLayout />
 			</HashRouter>
 		</Context.Provider>
 	);
