@@ -12,6 +12,7 @@ const BlogPostSchema = new Schema({
 	comments: [
 		{ type: Schema.Types.ObjectId, ref: "Comment", required: true },
 	],
+	author: { type: Schema.Types.ObjectId, ref: "Author", required: true },
 });
 
 BlogPostSchema.virtual("date_created_formatted").get(function () {
