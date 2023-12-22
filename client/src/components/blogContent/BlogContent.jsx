@@ -1,10 +1,11 @@
+import ParseHTML from "html-react-parser";
 import SocialIcons from "../socials/SocialIcons";
 
 const BlogContent = (props) => {
 	const { content } = props;
 	return (
 		<section className="flex justify-between gap-4 pt-8 md:pt-12">
-			<article>{content}</article>
+			<article>{ParseHTML(content || "")}</article>
 			<aside className="w-[250px] hidden md:flex flex-col gap-4 font-roboto ">
 				<span className="font-europaBold text-2xl">Follow Us</span>
 				<nav className="flex justify-between">

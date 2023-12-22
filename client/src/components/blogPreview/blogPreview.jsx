@@ -1,3 +1,4 @@
+import ParseHTML from "html-react-parser";
 import { Link } from "react-router-dom";
 
 const BlogPreview = (props) => {
@@ -27,7 +28,9 @@ const BlogPreview = (props) => {
 				</span>
 				<small>{date}</small>
 			</div>
-			<p className="text-gray-500 line-clamp-3 text-justify">{content}</p>
+			<p className="text-gray-500 line-clamp-3 text-justify">
+				{ParseHTML(content || "")}
+			</p>
 			<span className="underline underline-offset-4 font-europaBold text-black text-xl">
 				View Post
 			</span>
