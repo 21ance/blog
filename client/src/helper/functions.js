@@ -17,4 +17,8 @@ const saveToLocalStorage = (key, value) => {
 	localStorage.setItem(key, JSON.stringify(value));
 };
 
-export { axiosPost, saveToLocalStorage };
+const deleteFromLocalStorage = (key) => {
+	localStorage.removeItem(key);
+};
+
+export { axiosPost, saveToLocalStorage, deleteFromLocalStorage };

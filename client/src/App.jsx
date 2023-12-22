@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import Header from "./components/header/Header";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
+import AuthorPage from "./pages/AuthorPage";
 import ModalLayout from "./components/modal/ModalLayout";
 import { axiosPost } from "./helper/functions";
 
@@ -18,20 +19,21 @@ function App() {
 		axiosPost("auth", null, {
 			headers: { Authorization: token },
 		}).then((res) => setLoginDetails(res));
-	}, []);
+	}, [modalConfig]);
 
 	return (
 		<Context.Provider
 			value={{
 				modal: { modalConfig, setModalConfig },
-				loginDetails: { loginDetails, setLoginDetails },
+				login: { loginDetails, setLoginDetails },
 			}}
 		>
 			<HashRouter>
 				<Header />
 				<Routes>
 					<Route path="/" element={<HomePage />} />{" "}
-					<Route path="/blog/:blogID" element={<BlogPage />} />{" "}
+					<Route path="/blog/:blogID" element={<BlogPage />} />
+					<Route path="/author" element={<AuthorPage />} />
 				</Routes>
 				<ModalLayout />
 			</HashRouter>
