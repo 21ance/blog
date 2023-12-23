@@ -28,9 +28,9 @@ const BlogPreview = (props) => {
 				</span>
 				<small>{date}</small>
 			</div>
-			<p className="text-gray-500 line-clamp-3 text-justify">
+			<div className="text-gray-500 line-clamp-1 text-justify">
 				{ParseHTML(content || "")}
-			</p>
+			</div>
 			<span className="underline underline-offset-4 font-europaBold text-black text-xl">
 				View Post
 			</span>
