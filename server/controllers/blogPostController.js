@@ -31,6 +31,42 @@ exports.blog_get = asyncHandler(async (req, res, next) => {
 	}
 });
 
+exports.blog_by_author_get = asyncHandler(async (req, res, next) => {
+	try {
+		const blogPost = await BlogPost.find({
+			author: req.params.authorID,
+		})
+			.populate("comments", "username comment date_created")
+			.populate("author", "username")
+			.exec();
+		res.json(blogPost);
+	} catch (err) {
+		res.status(404).json({
+			message: "Blog does not exist",
+		});
+	}
+});
+
+exports.blog_status_update_put = [
+	passport.authenticate("jwt", { session: false }),
+	asyncHandler(async (req, res, next) => {
+		try {
+			const blogPost = await BlogPost.findById(req.params.blogID);
+			await BlogPost.findByIdAndUpdate(req.params.blogID, {
+				isPublished: !blogPost.isPublished,
+			});
+			res.json({
+				message: "update success",
+				isPublished: !blogPost.isPublished,
+			});
+		} catch (err) {
+			res.status(404).json({
+				message: "Blog does not exist",
+			});
+		}
+	}),
+];
+
 exports.blog_post = [
 	passport.authenticate("jwt", { session: false }),
 	body("title", "Title is required").trim().isLength({ min: 1 }),

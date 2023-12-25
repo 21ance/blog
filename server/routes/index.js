@@ -11,7 +11,9 @@ router.post("/register", auth_controller.register_post);
 const blogPost_controller = require("../controllers/blogPostController");
 router.get("/blogs", blogPost_controller.blog_get_all);
 router.get("/blog/:id", blogPost_controller.blog_get);
+router.get("/:authorID/blogs", blogPost_controller.blog_by_author_get);
 router.post("/blog_new", blogPost_controller.blog_post);
+router.put("/:blogID/edit", blogPost_controller.blog_status_update_put);
 
 // comment routes
 const comment_controller = require("../controllers/commentController");
