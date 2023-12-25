@@ -14,7 +14,7 @@ const Header = () => {
 		<header
 			className={
 				"relative text-white flex items-center justify-between h-14 px-4 py-10 uppercase text-md xl:text-lg z-10 font-europaBold" +
-				(location.pathname === "/author" ? " bg-stone-800" : "")
+				(location.pathname !== "/" ? " bg-stone-800" : "")
 			}
 		>
 			<Link to={"/"} className="flex items-center">
@@ -33,7 +33,7 @@ const Header = () => {
 				<>
 					<nav className="hidden sm:flex gap-4 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
 						<Link to={"/author"}> New Blog</Link>
-						<Link to={"/"}> My Blogs</Link>
+						<Link to={"/my-blogs"}> My Blogs</Link>
 					</nav>
 					<div className="flex flex-col items-end">
 						<button

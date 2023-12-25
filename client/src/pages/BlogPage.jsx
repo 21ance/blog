@@ -9,7 +9,7 @@ const BlogPage = () => {
 	const blog = data;
 
 	if (loading) return "Loading...";
-	if (error) return `Error: ${error}`;
+	if (error || !blog.isPublished) return `Error: ${error}`;
 
 	return (
 		<main className="px-4 md:px-16">
