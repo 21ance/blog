@@ -1,7 +1,8 @@
-import ParseHTML from "html-react-parser";
 import { Link } from "react-router-dom";
 
 const BlogPreview = (props) => {
+	const regex = /<br>(?=(?:\s*<[^>]*>)*$)|&nbsp;|(<br>)|<[^>]*>/gi;
+
 	const {
 		href,
 		src = "/images/blog-preview-default.jpg",
@@ -29,7 +30,7 @@ const BlogPreview = (props) => {
 				<small>{date}</small>
 			</div>
 			<div className="text-gray-500 line-clamp-1 text-justify">
-				{ParseHTML(content || "")}
+				{content.replace(regex, " ")}
 			</div>
 			<span className="underline underline-offset-4 font-europaBold text-black text-xl">
 				View Post

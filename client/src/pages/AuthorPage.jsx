@@ -51,15 +51,9 @@ const AuthorPage = () => {
 						apiKey="gesm6pay9n3x4j4rq5p53ghd4v3sati1dg1y1jw9ou1zrwin"
 						init={{
 							plugins:
-								"autoresize ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
+								"autoresize mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
 							toolbar:
-								"fontsize | bold italic underline strikethrough | link image | align lineheight | numlist bullist indent outdent",
-							tinycomments_mode: "embedded",
-							tinycomments_author: "Author name",
-							ai_request: (request, respondWith) =>
-								respondWith.string(() =>
-									Promise.reject("See docs to implement AI Assistant")
-								),
+								"blocks | fontsize | bold italic underline strikethrough | link image | align lineheight | numlist bullist indent outdent",
 						}}
 						initialValue="Write your blog content here!"
 					/>
