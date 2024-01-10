@@ -22,7 +22,7 @@ const BlogList = () => {
 								key={blog._id}
 								href={`/blog/${blog._id}`}
 								title={blog.title}
-								// author="Lance Lopez"
+								image={blog.image}
 								date={blog.date_created}
 								content={blog.content}
 							/>

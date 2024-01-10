@@ -7,7 +7,7 @@ import {
 const BlogPreview = (props) => {
 	const {
 		href,
-		src = "/images/blog-preview-default.jpg",
+		image,
 		title = "Integer Maecenas Eget Viverra",
 		avatar = "/images/author-avatar-mini.png",
 		author = "Lance Lopez",
@@ -17,7 +17,7 @@ const BlogPreview = (props) => {
 	return (
 		<Link to={href} className="flex flex-col gap-3 text-gray-500">
 			<img
-				src={src}
+				src={image ? image : "/images/blog-placeholder.jpg"}
 				alt="blog preview image"
 				className="h-[200px] md:h-[420px] object-cover"
 			/>

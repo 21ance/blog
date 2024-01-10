@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import { convertDateTime } from "../../helper/functions";
 
 const BlogHero = (props) => {
-	const { title, author = "Lance Lopez", date } = props;
+	const { image, title, author, date } = props;
 
 	return (
 		<section className="relative h-[35vh] lg:h-[50vh] flex flex-col justify-between gap-4 text-white mx-[-1rem] md:mx-[-4rem] mt-[-5rem]">
 			<img
-				src="/images/blog-placeholder.jpg"
+				src={image ? image : "/images/blog-placeholder.jpg"}
 				className="object-cover w-full h-full absolute top-0 -z-10 brightness-50 "
 				alt="hero section background image"
 			/>

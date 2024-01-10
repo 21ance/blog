@@ -13,7 +13,12 @@ const BlogPage = () => {
 
 	return (
 		<main className="px-4 md:px-16">
-			<BlogHero title={blog.title} date={blog.date_created} />
+			<BlogHero
+				image={blog.image}
+				title={blog.title}
+				author={blog.author.username}
+				date={blog.date_created}
+			/>
 			<BlogContent content={blog.content} />
 		</main>
 	);
