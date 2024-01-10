@@ -50,8 +50,9 @@ const AuthorPage = () => {
 						}
 						apiKey="gesm6pay9n3x4j4rq5p53ghd4v3sati1dg1y1jw9ou1zrwin"
 						init={{
+							height: "600",
 							plugins:
-								"autoresize mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
+								"anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount",
 							toolbar:
 								"blocks | fontsize | bold italic underline strikethrough | link image | align lineheight | numlist bullist indent outdent",
 						}}

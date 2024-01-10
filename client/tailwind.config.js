@@ -13,7 +13,7 @@ export default {
 				"hero-bg": "url('/images/hero-bg.jpg')",
 			},
 			gridTemplateColumns: {
-				blogList: "repeat(auto-fit, minmax(300px, 1fr))",
+				blogList: "repeat(auto-fill, minmax(560px, 1fr))",
 			},
 		},
 	},

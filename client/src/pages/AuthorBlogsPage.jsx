@@ -50,7 +50,6 @@ const AuthorBlogsPage = () => {
 												null,
 												{ Authorization: token }
 											).then((blog.isPublished = !blog.isPublished));
-
 											e.target.textContent = res.isPublished
 												? "Hide"
 												: "Show";
