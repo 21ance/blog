@@ -16,7 +16,7 @@ const AuthorBlogsPage = () => {
 		if (!loginDetails) navigate("/");
 	}, []);
 
-	if (loading) return "Loading...";
+	if (loading) return <p>Loading...</p>;
 	if (error) return `Error: ${error}`;
 
 	return (

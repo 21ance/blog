@@ -8,8 +8,8 @@ const BlogPage = () => {
 	const { data, loading, error } = useAxiosGet(`blog/${blogID}`);
 	const blog = data;
 
-	if (loading) return "Loading...";
-	if (error || !blog.isPublished) return `Error: ${error}`;
+	if (loading) return <p>Loading...</p>;
+	if (error || !blog.isPublished) return <p>{`Error: ${error}`}</p>;
 
 	return (
 		<main className="px-4 md:px-16">

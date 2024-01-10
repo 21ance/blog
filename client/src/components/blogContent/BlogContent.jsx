@@ -3,6 +3,7 @@ import SocialIcons from "../socials/SocialIcons";
 
 const BlogContent = (props) => {
 	const { content } = props;
+
 	return (
 		<section className="flex justify-between gap-4 pt-8 md:pt-12">
 			<article className="flex justify-center items-center w-full">

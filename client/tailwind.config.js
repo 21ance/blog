@@ -14,6 +14,7 @@ export default {
 			},
 			gridTemplateColumns: {
 				blogList: "repeat(auto-fill, minmax(560px, 1fr))",
+				blogListMobile: "repeat(auto-fill, minmax(300px, 1fr))",
 			},
 		},
 	},

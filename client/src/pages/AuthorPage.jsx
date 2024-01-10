@@ -54,7 +54,7 @@ const AuthorPage = () => {
 							plugins:
 								"anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount",
 							toolbar:
-								"blocks | fontsize | bold italic underline strikethrough | link image | align lineheight | numlist bullist indent outdent",
+								"fontsize | bold italic underline strikethrough | link image | align lineheight | numlist bullist indent outdent",
 						}}
 						initialValue="Write your blog content here!"
 					/>
