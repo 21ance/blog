@@ -7,7 +7,7 @@ exports.blog_get_all = asyncHandler(async (req, res, next) => {
 	try {
 		const allBlogs = await BlogPost.find()
 			.populate("comments", "username comment date_created")
-			.populate("author", "username")
+			.populate("author", "username avatar")
 			.exec();
 		res.json(allBlogs);
 	} catch (err) {
@@ -21,7 +21,7 @@ exports.blog_get = asyncHandler(async (req, res, next) => {
 	try {
 		const blogPost = await BlogPost.findById(req.params.id)
 			.populate("comments", "username comment date_created")
-			.populate("author", "username")
+			.populate("author", "username avatar")
 			.exec();
 		res.json(blogPost);
 	} catch (err) {
@@ -37,7 +37,7 @@ exports.blog_by_author_get = asyncHandler(async (req, res, next) => {
 			author: req.params.authorID,
 		})
 			.populate("comments", "username comment date_created")
-			.populate("author", "username")
+			.populate("author", "username avatar")
 			.exec();
 		res.json(blogPost);
 	} catch (err) {
