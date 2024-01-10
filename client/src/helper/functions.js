@@ -1,4 +1,5 @@
 import axios from "axios";
+import { DateTime } from "luxon";
 
 const axiosPost = async (endpoint, data, config) => {
 	try {
@@ -35,9 +36,20 @@ const deleteFromLocalStorage = (key) => {
 	localStorage.removeItem(key);
 };
 
+const convertDateTime = (date) => {
+	return DateTime.fromISO(date).toLocaleString(DateTime.DATETIME_MED);
+};
+
+const removeElementTags = (text) => {
+	const regex = /<br>(?=(?:\s*<[^>]*>)*$)|&nbsp;|(<br>)|<[^>]*>/gi;
+	return text.replace(regex, " ");
+};
+
 export {
 	axiosPost,
 	axiosFunction,
 	saveToLocalStorage,
 	deleteFromLocalStorage,
+	convertDateTime,
+	removeElementTags,
 };

@@ -14,7 +14,10 @@ const Header = () => {
 		<header
 			className={
 				"relative text-white flex items-center justify-between h-14 px-4 py-10 uppercase text-md xl:text-lg z-10 font-europaBold" +
-				(location.pathname !== "/" ? " bg-stone-800" : "")
+				(location.pathname === "/author" ||
+				location.pathname === "/my-blogs"
+					? " bg-stone-800"
+					: "")
 			}
 		>
 			<Link to={"/"} className="flex items-center">

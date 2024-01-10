@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { convertDateTime } from "../../helper/functions";
 
 const BlogHero = (props) => {
 	const { title, author = "Lance Lopez", date } = props;
@@ -23,7 +24,7 @@ const BlogHero = (props) => {
 				</h1>
 				<footer className="flex items-end gap-8 text-sm md:text-lg">
 					<span>by {author}</span>
-					<span>{date}</span>
+					<span>{convertDateTime(date)}</span>
 				</footer>
 			</div>
 		</section>

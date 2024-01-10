@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import {
+	convertDateTime,
+	removeElementTags,
+} from "../../helper/functions";
 
 const BlogPreview = (props) => {
-	const regex = /<br>(?=(?:\s*<[^>]*>)*$)|&nbsp;|(<br>)|<[^>]*>/gi;
-
 	const {
 		href,
 		src = "/images/blog-preview-default.jpg",
@@ -19,7 +21,7 @@ const BlogPreview = (props) => {
 				alt="blog preview image"
 				className="h-[200px] md:h-[420px] object-cover"
 			/>
-			<h2 className="font-europaBold text-black text-2xl md:text-4xl">
+			<h2 className="font-europaBold text-black text-2xl md:text-3xl">
 				{title}
 			</h2>
 			<div className="flex items-center justify-between">
@@ -27,10 +29,10 @@ const BlogPreview = (props) => {
 					<img src={avatar} alt="author avatar" />
 					<small>{author}</small>
 				</span>
-				<small>{date}</small>
+				<small>{convertDateTime(date)}</small>
 			</div>
 			<div className="text-gray-500 line-clamp-3 text-justify">
-				{content.replace(regex, " ")}
+				{removeElementTags(content)}
 			</div>
 			<span className="underline underline-offset-4 font-europaBold text-black text-xl">
 				View Post

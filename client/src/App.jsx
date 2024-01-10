@@ -7,6 +7,7 @@ import AuthorPage from "./pages/AuthorPage";
 import ModalLayout from "./components/modal/ModalLayout";
 import { axiosPost } from "./helper/functions";
 import AuthorBlogsPage from "./pages/AuthorBlogsPage";
+import Footer from "./components/footer/Footer";
 
 export const Context = createContext();
 
@@ -37,6 +38,7 @@ function App() {
 					<Route path="/author" element={<AuthorPage />} />
 					<Route path="/my-blogs" element={<AuthorBlogsPage />} />
 				</Routes>
+				<Footer />
 				<ModalLayout />
 			</HashRouter>
 		</Context.Provider>
